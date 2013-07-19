@@ -2,21 +2,30 @@
 (function (){
   'use strict';
 
+  	// points basics
+  	var pV = 1;
+  	var pW = 2;
+  	var pX = 3;
+  	var pY = 4;
+  	var pZ = 5;
+
+  	var scale = 60;
+
 	// points coordinates
-	var a = new Point(200, 100);
-	var b = new Point(100, 200);
-	var c = new Point(200, 200);
-	var d = new Point(300, 200);
-	var e = new Point(100, 300);
-	var f = new Point(200, 300);
-	var g = new Point(300, 300);
-	var h = new Point(100, 400);
-	var i = new Point(200, 400);
-	var j = new Point(300, 400);
-	var k = new Point(200, 500);
+	var pA = new Point( pW * scale, pV * scale );
+	var pB = new Point( pV * scale, pW * scale );
+	var pC = new Point( pW * scale, pW * scale );
+	var pD = new Point( pX * scale, pW * scale );
+	var pE = new Point( pV * scale, pX * scale );
+	var pF = new Point( pW * scale, pX * scale );
+	var pG = new Point( pX * scale, pX * scale );
+	var pH = new Point( pV * scale, pY * scale );
+	var pI = new Point( pW * scale, pY * scale );
+	var pJ = new Point( pX * scale, pY * scale );
+	var pK = new Point( pW * scale, pZ * scale );
 
 	// all points array
-	var allPoints = [a, b, c, d, e, f, g, h, i, j, k];
+	var allPoints = [pA, pB, pC, pD, pE, pF, pG, pH, pI, pJ, pK];
 
 	// get a random point
 	function randPoint () {
@@ -27,40 +36,43 @@
 	var guide = new Path();
 	guide.style = {
 		strokeColor: '00DDFF',
-		strokeWidth: 1
+		strokeWidth: .01 * scale,
+		dashArray: [2, 3]
+
 	};
 
 	var guideTwo = new Path();
 	guideTwo.style = {
 		strokeColor: '00DDFF',
-		strokeWidth: 1
+		strokeWidth: .01 * scale,
+		dashArray: [2, 3]
 	};
-
-	// draw guides
-	guide.moveTo(a);
-	guide.lineTo(d);
-	guide.lineTo(h);
-	guide.lineTo(k);
-	guide.lineTo(j);
-	guide.lineTo(h);
-	guide.lineTo(b);
-	guide.lineTo(d);
-	guide.lineTo(j);
-	guide.lineTo(b);
-	guide.lineTo(a);
-	guide.lineTo(k);
-
-	guideTwo.moveTo(e);
-	guideTwo.lineTo(g);
 
 	// path setup
 	var path = new Path();
 	path.style = {
 		strokeColor: new Color(0, 0.80),
-		strokeWidth: 32,
+		strokeWidth: .3 * scale,
 		strokeCap: 'round',
 		strokeJoin: 'round'
 	};
+
+	// draw guides
+	guide.moveTo(pA);
+	guide.lineTo(pD);
+	guide.lineTo(pH);
+	guide.lineTo(pK);
+	guide.lineTo(pJ);
+	guide.lineTo(pH);
+	guide.lineTo(pB);
+	guide.lineTo(pD);
+	guide.lineTo(pJ);
+	guide.lineTo(pB);
+	guide.lineTo(pA);
+	guide.lineTo(pK);
+
+	guideTwo.moveTo(pE);
+	guideTwo.lineTo(pG);
 
 	// draw a line between some random points
 	path.moveTo(randPoint());
