@@ -1,4 +1,4 @@
-/*global $:true, console:true*/
+/*global $:true, console:true Path:true, Point:true, Color:true */
 (function (){
   'use strict';
 
@@ -26,16 +26,14 @@
 	// guide path setup
 	var guide = new Path();
 	guide.style = {
-		strokeColor: 'black',
-		strokeWidth: 1,
-		dashArray: [1, 3]
+		strokeColor: '00DDFF',
+		strokeWidth: 1
 	};
 
 	var guideTwo = new Path();
 	guideTwo.style = {
-		strokeColor: 'black',
-		strokeWidth: 1,
-		dashArray: [1, 3]
+		strokeColor: '00DDFF',
+		strokeWidth: 1
 	};
 
 	// draw guides
@@ -58,16 +56,14 @@
 	// path setup
 	var path = new Path();
 	path.style = {
-		strokeColor: new Color(0, 0.85),
-		strokeWidth: 30,
+		strokeColor: new Color(0, 0.80),
+		strokeWidth: 32,
 		strokeCap: 'round',
 		strokeJoin: 'round'
 	};
 
 	// draw a line between some random points
 	path.moveTo(randPoint());
-	path.lineTo(randPoint());
-	path.lineTo(randPoint());
 	path.lineTo(randPoint());
 	path.lineTo(randPoint());
 	path.lineTo(randPoint());
