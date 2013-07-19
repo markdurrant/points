@@ -31,6 +31,9 @@
     "window" : true,
     "browser": true,
     "jquery": true,
-    "console": true
+    "console": true,
+    "Path": true,
+    "Point": true,
+    "Color": true
   }
 }
