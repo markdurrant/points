@@ -2,27 +2,31 @@
 (function (){
   'use strict';
 
-    // points basics
-    var pV = 1;
-    var pW = 2;
-    var pX = 3;
-    var pY = 4;
-    var pZ = 5;
+  // points basics
+  var pX1 = 1;
+  var pX2 = 2;
+  var pX3 = 3;
 
-    var scale = 40;
+  var pY1 = 1;
+  var pY2 = 2;
+  var pY3 = 3;
+  var pY4 = 4;
+  var pY5 = 5;
+
+  var scale = 40;
 
   // points coordinates
-  var pA = new Point( pW * scale, pV * scale );
-  var pB = new Point( pV * scale, pW * scale );
-  var pC = new Point( pW * scale, pW * scale );
-  var pD = new Point( pX * scale, pW * scale );
-  var pE = new Point( pV * scale, pX * scale );
-  var pF = new Point( pW * scale, pX * scale );
-  var pG = new Point( pX * scale, pX * scale );
-  var pH = new Point( pV * scale, pY * scale );
-  var pI = new Point( pW * scale, pY * scale );
-  var pJ = new Point( pX * scale, pY * scale );
-  var pK = new Point( pW * scale, pZ * scale );
+  var pA = new Point( pX2 * scale, pY1 * scale );
+  var pB = new Point( pX1 * scale, pY2 * scale );
+  var pC = new Point( pX2 * scale, pY2 * scale );
+  var pD = new Point( pX3 * scale, pY2 * scale );
+  var pE = new Point( pX1 * scale, pY3 * scale );
+  var pF = new Point( pX2 * scale, pY3 * scale );
+  var pG = new Point( pX3 * scale, pY3 * scale );
+  var pH = new Point( pX1 * scale, pY4 * scale );
+  var pI = new Point( pX2 * scale, pY4 * scale );
+  var pJ = new Point( pX3 * scale, pY4 * scale );
+  var pK = new Point( pX2 * scale, pY5 * scale );
 
   // all points array
   var allPoints = [pA, pB, pC, pD, pE, pF, pG, pH, pI, pJ, pK];
@@ -32,52 +36,68 @@
     return allPoints[Math.floor(Math.random() * allPoints.length)];
   }
 
-  // guide path setup
-  var guide = new Path();
-  guide.style = {
-    strokeColor: '77EEFF',
-    strokeWidth: 1
+  function drawGuide () {
+    // guide path setup
+    var guide = new Path();
+    guide.style = {
+      strokeColor: '77EEFF',
+      strokeWidth: 1
 
-  };
+    };
 
-  var guideTwo = new Path();
-  guideTwo.style = {
-    strokeColor: '77EEFF',
-    strokeWidth: 1
-  };
+    var guideTwo = new Path();
+    guideTwo.style = {
+      strokeColor: '77EEFF',
+      strokeWidth: 1
+    };
 
-  // path setup
-  var path = new Path();
-  path.style = {
-    strokeColor: new Color(0, 0.80),
-    strokeWidth: 0.3 * scale,
-    strokeCap: 'round',
-    strokeJoin: 'round'
-  };
+    // draw guides
+    guide.moveTo(pA);
+    guide.lineTo(pD);
+    guide.lineTo(pH);
+    guide.lineTo(pK);
+    guide.lineTo(pJ);
+    guide.lineTo(pH);
+    guide.lineTo(pB);
+    guide.lineTo(pD);
+    guide.lineTo(pJ);
+    guide.lineTo(pB);
+    guide.lineTo(pA);
+    guide.lineTo(pK);
 
-  // draw guides
-  guide.moveTo(pA);
-  guide.lineTo(pD);
-  guide.lineTo(pH);
-  guide.lineTo(pK);
-  guide.lineTo(pJ);
-  guide.lineTo(pH);
-  guide.lineTo(pB);
-  guide.lineTo(pD);
-  guide.lineTo(pJ);
-  guide.lineTo(pB);
-  guide.lineTo(pA);
-  guide.lineTo(pK);
+    guideTwo.moveTo(pE);
+    guideTwo.lineTo(pG);
+  }
 
-  guideTwo.moveTo(pE);
-  guideTwo.lineTo(pG);
+  function drawGlyph () {
+    // path setup
+    var path = new Path();
+    path.style = {
+      strokeColor: new Color(0, 0.80),
+      strokeWidth: 0.3 * scale,
+      strokeCap: 'round',
+      strokeJoin: 'round'
+    };
 
-  // draw a line between some random points
-  path.moveTo(randPoint());
-  path.lineTo(randPoint());
-  path.lineTo(randPoint());
-  path.lineTo(randPoint());
-  path.lineTo(randPoint());
-  path.lineTo(randPoint());
+    // draw a line between some random points
+    path.moveTo(randPoint());
+    path.lineTo(randPoint());
+    path.lineTo(randPoint());
+    path.lineTo(randPoint());
+    path.lineTo(randPoint());
+    path.lineTo(randPoint());
+  }
+
+  // drawGuide();
+  // drawGlyph();
+
+  function glyphGrid () {
+    for (var i = 1; i <= 3; ++i) {
+      drawGuide();
+      drawGlyph();
+    }  
+  }
+
+  glyphGrid();
 
 })();
