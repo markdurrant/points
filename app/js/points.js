@@ -22,70 +22,68 @@
 	var glyphPoints = [[1,0], [0,1], [1,1], [2,1], [0,2], [1,2], [2,2], [0,3], [1,3], [2,3], [1,4]];
 
 	// set coordinate grid size 
-	var glyphScale = 30;
-
-	// set glyph starting point
-	var glyphStart = [60, 60];
+	var glyphScale = 20;
 
 	// scale all glyph points
-	function scaleGlyph (glyphScale) {
+	(function () {
 		for (var i = glyphPoints.length - 1; i >= 0; i--) {
 			glyphPoints[i][0] *= glyphScale;
 			glyphPoints[i][1] *= glyphScale;
-		}		
-	}
-
-	// start glyph starting position
-	function setStart (glyphStartX, glyphStartY) {
-		for (var i = glyphPoints.length - 1; i >= 0; i--) {
-			glyphPoints[i][0] += glyphStartX;
-			glyphPoints[i][1] += glyphStartY;
-		}
-	}
+		}	
+	})();
 
 	// draw a dot on each of the coordinate points
-	function drawDots () {
+	function drawDots (startX, startY) {
 		for (var i = glyphPoints.length - 1; i >= 0; i--) {
-			var dot = new Shape.Circle(new Point(glyphPoints[i]), 0.05 * glyphScale);
-			dot.fillColor = 'FFF';
-
+			// create a circle for each glyphPoint
+			var dot = new Shape.Circle(new Point(glyphPoints[i][0] + (startX * glyphScale), glyphPoints[i][1] + (startY * glyphScale)), 0.05 * glyphScale);
+			
+			// group and style dots		
 			var dots = new Group(dot);
+			dots.fillColor = 'F09';
 			dots.sendToBack();
 		}
 	}
 
-	// get a random point
-	function randPoint () {
-		return glyphPoints[Math.floor(Math.random() * glyphPoints.length)];
-	}
+	// draw a random glyph
+	function drawGlyph (startX, startY) {
+		// get a random point
+		function randPoint () {
+			var i = glyphPoints[Math.floor(Math.random() * glyphPoints.length)];
 
-	function drawGlyph () {
+			return [i[0] + (startX * glyphScale), i[1] + (startY * glyphScale)];
+		}
+
 		// initalize glyph
 		var glyph = new Path();
 
 		// set glyph styles
 		glyph.style = {
-			strokeColor: "FFF",
-			strokeWidth: 0.05 * glyphScale,
+			strokeColor: "09F",
+			strokeWidth: 0.25 * glyphScale,
 			strokeCap: 'round',
 			strokeJoin: 'round'
 		};
 
-		glyph.add(randPoint(), randPoint(), randPoint(), randPoint(), randPoint(), randPoint());
+		// conect some random points
+		glyph.add(randPoint(), randPoint(), randPoint(), randPoint(), randPoint(), randPoint(), randPoint(), randPoint());
 	}
 
-	function drawAll (x, y) {
-		setStart(x, y);
-		drawDots();
-		drawGlyph();
+	// draw dots and glyph at start coordinates
+	function drawBoth (startX, startY) {
+		drawDots(startX, startY);
+		drawGlyph(startX, startY);
 	}
 
-	scaleGlyph(glyphScale);
-
-	drawAll(20, 20);
-
-	for (var i = 8 ; i >= 0; i--) {
-		drawAll(100, 0);	
+	// draw a grid of glyphs
+	function drawGrid(rows, cols, startX, startY) {
+		for ( var i = 0; i < rows  ; i++ ) {
+			for (var j = 0; j < cols; j++) {
+				drawBoth(i * 4 + startX, j * 5.5 + startY);
+			}
+		}
 	}
+
+	drawGrid(7, 5, 2, 2);
 
 })();
