@@ -27,17 +27,6 @@
 	// set glyph starting point
 	var glyphStart = [60, 60];
 
-	// initalize glyph
-	var glyph = new Path();
-
-	// set glyph styles
-	glyph.style = {
-		strokeColor: "000",
-	strokeWidth: 0.35 * glyphScale,
-	strokeCap: 'round',
-	strokeJoin: 'round'
-	};
-
 	// scale all glyph points
 	function scaleGlyph (glyphScale) {
 		for (var i = glyphPoints.length - 1; i >= 0; i--) {
@@ -58,7 +47,7 @@
 	function drawDots () {
 		for (var i = glyphPoints.length - 1; i >= 0; i--) {
 			var dot = new Shape.Circle(new Point(glyphPoints[i]), 0.05 * glyphScale);
-			dot.fillColor = '000';
+			dot.fillColor = 'FFF';
 
 			var dots = new Group(dot);
 			dots.sendToBack();
@@ -70,10 +59,33 @@
 		return glyphPoints[Math.floor(Math.random() * glyphPoints.length)];
 	}
 
-	scaleGlyph(glyphScale);
-	setStart(glyphStart[0], glyphStart[1]);
-	drawDots();
+	function drawGlyph () {
+		// initalize glyph
+		var glyph = new Path();
 
-	glyph.add(randPoint(), randPoint(), randPoint(), randPoint(), randPoint(), randPoint());
+		// set glyph styles
+		glyph.style = {
+			strokeColor: "FFF",
+			strokeWidth: 0.05 * glyphScale,
+			strokeCap: 'round',
+			strokeJoin: 'round'
+		};
+
+		glyph.add(randPoint(), randPoint(), randPoint(), randPoint(), randPoint(), randPoint());
+	}
+
+	function drawAll (x, y) {
+		setStart(x, y);
+		drawDots();
+		drawGlyph();
+	}
+
+	scaleGlyph(glyphScale);
+
+	drawAll(20, 20);
+
+	for (var i = 8 ; i >= 0; i--) {
+		drawAll(100, 0);	
+	}
 
 })();
