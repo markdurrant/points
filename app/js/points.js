@@ -1,4 +1,4 @@
-/*global $:true, console:true Path:true, Point:true, Color:true, Group:true*/
+/*global $:true, console:true Path:true, Point:true, Color:true, Group:true, Shape:true*/
 
 /*  GLYPH COORDINATES SYSTEM
 
@@ -22,14 +22,14 @@
 	var glyphPoints = [[1,0], [0,1], [1,1], [2,1], [0,2], [1,2], [2,2], [0,3], [1,3], [2,3], [1,4]];
 
 	// set coordinate grid size 
-	var glyphScale = 60;
+	var glyphScale = 30;
 
 	// set glyph starting point
 	var glyphStart = [60, 60];
 
 	// initalize glyph
 	var glyph = new Path();
-	
+
 	// set glyph styles
 	glyph.style = {
 		strokeColor: "000",
@@ -54,23 +54,26 @@
 		}
 	}
 
-	// draw guides
-	function drawGuide () {
-		var path = new Path();
-		path.add(glyphPoints[0], glyphPoints[3], glyphPoints[7], glyphPoints[9], glyphPoints[1], glyphPoints[3], glyphPoints[9], glyphPoints[10], glyphPoints[7], glyphPoints[1], glyphPoints[0], glyphPoints[10]);
+	// draw a dot on each of the coordinate points
+	function drawDots () {
+		for (var i = glyphPoints.length - 1; i >= 0; i--) {
+			var dot = new Shape.Circle(new Point(glyphPoints[i]), 0.05 * glyphScale);
+			dot.fillColor = '000';
 
-		var path2 = new Path();
-		path2.add(glyphPoints[4], glyphPoints[6]);
-
-		var guides = new Group(path, path2);
-		guides.strokeColor = '5CF';
-		guides.sendToBack();
+			var dots = new Group(dot);
+			dots.sendToBack();
+		}
 	}
+
+	// get a random point
+  function randPoint () {
+    return glyphPoints[Math.floor(Math.random() * glyphPoints.length)];
+  }
 
 	scaleGlyph(glyphScale);
 	setStart(glyphStart[0], glyphStart[1]);
-	drawGuide();
+	drawDots();
 
-	glyph.add(glyphPoints[4], glyphPoints[6]);
+	glyph.add(randPoint(), randPoint(), randPoint(), randPoint(), randPoint(), randPoint());
 
 })();
