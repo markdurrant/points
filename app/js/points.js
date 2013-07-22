@@ -33,9 +33,9 @@
 	// set glyph styles
 	glyph.style = {
 		strokeColor: "000",
-    strokeWidth: 0.35 * glyphScale,
-    strokeCap: 'round',
-    strokeJoin: 'round'
+	strokeWidth: 0.35 * glyphScale,
+	strokeCap: 'round',
+	strokeJoin: 'round'
 	};
 
 	// scale all glyph points
@@ -66,9 +66,9 @@
 	}
 
 	// get a random point
-  function randPoint () {
-    return glyphPoints[Math.floor(Math.random() * glyphPoints.length)];
-  }
+	function randPoint () {
+		return glyphPoints[Math.floor(Math.random() * glyphPoints.length)];
+	}
 
 	scaleGlyph(glyphScale);
 	setStart(glyphStart[0], glyphStart[1]);
