@@ -66,7 +66,7 @@
 		};
 
 		// conect some random points
-		glyph.add(randPoint(), randPoint(), randPoint(), randPoint(), randPoint(), randPoint(), randPoint(), randPoint());
+		glyph.add(randPoint(), randPoint(), randPoint(), randPoint(), randPoint(), randPoint());
 	}
 
 	// draw dots and glyph at start coordinates
