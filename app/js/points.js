@@ -22,7 +22,7 @@
   var glyphPoints = [[1,0], [0,1], [1,1], [2,1], [0,2], [1,2], [2,2], [0,3], [1,3], [2,3], [1,4]];
 
   // set coordinate grid size 
-  var glyphScale = 20;
+  var glyphScale = 30;
 
   // scale all glyph points
   for (var i = glyphPoints.length - 1; i >= 0; i--) {
@@ -38,7 +38,7 @@
       
       // group and style dots   
       var dots = new Group(dot);
-      dots.fillColor = 'F09';
+      dots.fillColor = '000';
       dots.sendToBack();
     }
   }
@@ -57,7 +57,7 @@
 
     // set glyph styles
     glyph.style = {
-      strokeColor: "09F",
+      strokeColor: "000",
       strokeWidth: 0.25 * glyphScale,
       strokeCap: 'round',
       strokeJoin: 'round'
@@ -82,6 +82,6 @@
     }
   }
 
-  drawGrid(7, 5, 2, 2);
+  drawGrid(10, 9, 2, 2);
 
 })();
