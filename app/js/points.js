@@ -82,6 +82,66 @@
     }
   }
 
-  drawGrid(10, 9, 2, 2);
+  // drawGrid(10, 9, 2, 2);
+
+  var myCircle = new Path.Circle(new Point(400, 400), 200);
+
+  myCircle.strokeColor = 'black';
+  myCircle.style = {
+    strokeColor: "000",
+    strokeWidth: 2,
+    strokeCap: 'round',
+    strokeJoin: 'round'
+  };
+
+
+  var triangle = new Path.RegularPolygon(new Point(400, 400), 3, 200);
+  triangle.style = {
+    strokeColor: "000",
+    strokeWidth: 2,
+    strokeCap: 'round',
+    strokeJoin: 'round'
+  };
+
+  var square = new Path.RegularPolygon(new Point(400, 400), 4, 200);
+  square.style = {
+    strokeColor: "000",
+    strokeWidth: 2,
+    strokeCap: 'round',
+    strokeJoin: 'round'
+  };
+  square.rotate(45);
+
+  var pentagon = new Path.RegularPolygon(new Point(400, 400), 5, 200);
+  pentagon.style = {
+    strokeColor: "000",
+    strokeWidth: 2,
+    strokeCap: 'round',
+    strokeJoin: 'round'
+  };
+
+  var hexagon = new Path.RegularPolygon(new Point(400, 400), 6, 200);
+  hexagon.style = {
+    strokeColor: "000",
+    strokeWidth: 2,
+    strokeCap: 'round',
+    strokeJoin: 'round'
+  };
+
+  var heptagon = new Path.RegularPolygon(new Point(400, 400), 7, 200);
+  heptagon.style = {
+    strokeColor: "000",
+    strokeWidth: 2,
+    strokeCap: 'round',
+    strokeJoin: 'round'
+  };
+
+  var octagon = new Path.RegularPolygon(new Point(400, 400), 8, 200);
+  octagon.style = {
+    strokeColor: "000",
+    strokeWidth: 2,
+    strokeCap: 'round',
+    strokeJoin: 'round'
+  };
 
 })();
