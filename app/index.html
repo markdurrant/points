@@ -6,13 +6,43 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
+    <script type="text/javascript" src="//use.typekit.net/mtu7caj.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
     <link rel="stylesheet" href="css/styles.css">
 
   </head>
   <body>
 
+    
     <div class="wrap">
-      <canvas id="points" width="2000px" height="2000px"></canvas>
+      <div class="instructions">
+
+        <h1 class="tera">A.D.A.M</h1>
+        <h2 class="mega">Automatic Demon Acquisition Machine</h2>
+
+        <p>Acquire your very own demon underling with A.D.A.Ms patented <b>Summon Totem&#0153;</b> technology in three simple steps.</p>
+
+        <div class="steps">
+          <h3 class="alpha">Step 1</h3>
+          <p>Input the name of your desired Demon</p>
+
+          <h3 class="alpha">Step 2</h3>
+          <p>Generate and print your unique <b>Summon Totem&#0153;</b></p>
+
+          <h3 class="alpha">Step 3</h3>
+          <p>Place your <b>Summon Totem&#0153;</b> on any regulation size occult alter and provide a sacrifice</p>
+          <p class="small">Acceptable sacrifices include chickens, goats, children, cats, & OAPs</p>
+        </div>
+
+        <p class="label">Demon Name</p>
+        <input type="text">
+        <button class="go">generate</button>
+
+      </div>
+
+      <span class="tera name"></span>
+      <canvas id="points" width="600px" height="600px" class=""></canvas>
     </div>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -20,6 +50,6 @@
     <script src="js/vendor/paper.min.js"></script>
 
     <script src="js/main.js"></script>
-    <script type="text/paperscript" src="js/points.js" canvas="points"></script>
+    <script type="text/paperscript" src="js/transmutationCircle.js" canvas="points"></script>
   </body>
 </html>

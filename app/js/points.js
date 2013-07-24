@@ -49,7 +49,7 @@
     function randPoint () {
       var i = glyphPoints[Math.floor(Math.random() * glyphPoints.length)];
 
-      return [i[0] + (startX * glyphScale), i[1] + (startY * glyphScale)];
+      return [i[0] + (startX), i[1] + (startY)];
     }
 
     // initalize glyph
@@ -82,66 +82,45 @@
     }
   }
 
-  // drawGrid(10, 9, 2, 2);
+  function transmutationCircle (x, y) {
+    var center = new Point(x, y);
 
-  var myCircle = new Path.Circle(new Point(400, 400), 200);
+    var circle_1 = new Path.Circle(center, 440);
+    circle_1.style = {
+      strokeColor: '#000',
+      strokeWidth: 4
+    };
 
-  myCircle.strokeColor = 'black';
-  myCircle.style = {
-    strokeColor: "000",
-    strokeWidth: 2,
-    strokeCap: 'round',
-    strokeJoin: 'round'
-  };
+    var circle_2 = new Path.Circle(center, 340);
 
+    var circle_3 = new Path.Circle(center + [0, 340], 80);
 
-  var triangle = new Path.RegularPolygon(new Point(400, 400), 3, 200);
-  triangle.style = {
-    strokeColor: "000",
-    strokeWidth: 2,
-    strokeCap: 'round',
-    strokeJoin: 'round'
-  };
+    var circle_4 = new Path.Circle(center + [0, 340], 80);
+    circle_4.rotate(120, center);
 
-  var square = new Path.RegularPolygon(new Point(400, 400), 4, 200);
-  square.style = {
-    strokeColor: "000",
-    strokeWidth: 2,
-    strokeCap: 'round',
-    strokeJoin: 'round'
-  };
-  square.rotate(45);
+    var circle_5 = new Path.Circle(center + [0, 340], 80);
+    circle_5.rotate(240, center);
 
-  var pentagon = new Path.RegularPolygon(new Point(400, 400), 5, 200);
-  pentagon.style = {
-    strokeColor: "000",
-    strokeWidth: 2,
-    strokeCap: 'round',
-    strokeJoin: 'round'
-  };
+    var hexagon_1 = new Path.RegularPolygon(center, 6, 340);
 
-  var hexagon = new Path.RegularPolygon(new Point(400, 400), 6, 200);
-  hexagon.style = {
-    strokeColor: "000",
-    strokeWidth: 2,
-    strokeCap: 'round',
-    strokeJoin: 'round'
-  };
+    var triangle_1 = new Path.RegularPolygon(center, 3, 340);
+    triangle_1.rotate(180, center);
 
-  var heptagon = new Path.RegularPolygon(new Point(400, 400), 7, 200);
-  heptagon.style = {
-    strokeColor: "000",
-    strokeWidth: 2,
-    strokeCap: 'round',
-    strokeJoin: 'round'
-  };
+    var style_1 = new Group(circle_2, hexagon_1, triangle_1);
+    style_1.style = {
+      strokeColor: "000",
+      strokeWidth: 10,
+      strokeJoin: 'round'
+    };
 
-  var octagon = new Path.RegularPolygon(new Point(400, 400), 8, 200);
-  octagon.style = {
-    strokeColor: "000",
-    strokeWidth: 2,
-    strokeCap: 'round',
-    strokeJoin: 'round'
-  };
+    var style_2 = new Group(circle_3, circle_4, circle_5);
+    style_2.style = {
+      strokeColor: "000",
+      fillColor: '#FFF',
+      strokeWidth: 10
+    }; 
+  }
+
+  transmutationCircle(500, 500);
 
 })();

@@ -166,7 +166,7 @@ table {
 body {
   background-color: white;
   color: black;
-  font-size: 1.0625em;
+  font-size: 1em;
   font-family: sans-serif;
   line-height: 1.4; }
 
@@ -265,6 +265,10 @@ input[type="submit"] {
   display: table;
   clear: both; }
 
+.wrap {
+  width: 600px;
+  margin: 0 auto; }
+
 h1, h2, h3, h4, h5, h6 {
   color: black; }
 
@@ -336,3 +340,66 @@ h5 {
 
 h6 {
   margin-bottom: 0.8em; }
+
+p {
+  font-size: 1.25em; }
+
+body {
+  text-align: center;
+  padding-top: 3em;
+  font-family: "eskapade-fraktur"; }
+
+h1,
+h2,
+h3 {
+  font-family: "metalista-web";
+  font-weight: normal; }
+
+.steps {
+  margin: 2em 0;
+  text-align: left; }
+  .steps p {
+    margin-bottom: 1.5em; }
+  .steps .small {
+    font-style: italic;
+    margin-top: -1.5em;
+    font-size: .75em; }
+
+h1 {
+  margin-bottom: 0; }
+
+h3 {
+  margin-bottom: 0; }
+
+input {
+  width: 100%;
+  font-family: "metalista-web";
+  padding: .1em;
+  font-size: 4em;
+  margin-bottom: .5em;
+  border: 0;
+  background: #f2f2f2;
+  text-align: center; }
+  input:hover, input:focus {
+    background: #ededed; }
+  input:focus {
+    -webkit-appearance: none;
+    outline: none; }
+
+button, .btn {
+  width: 100%;
+  margin-bottom: .5em;
+  font-size: 4em;
+  background: black;
+  font-family: "metalista-web"; }
+  button:hover, .btn:hover {
+    background: #333333; }
+
+.label {
+  margin: 0;
+  text-align: left; }
+
+.name {
+  font-family: "metalista-web";
+  margin-top: 1em;
+  display: block; }
